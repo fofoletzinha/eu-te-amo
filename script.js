@@ -11,14 +11,20 @@ document.getElementById('closeLetterButton').addEventListener('click', () => {
 function createHeart() {
   const heart = document.createElement('div');
   heart.className = 'heart';
+
+  // Posição e tempo aleatório
   heart.style.left = Math.random() * 100 + 'vw';
-  heart.style.animationDuration = (Math.random() * 2 + 3) + 's';
+  heart.style.animationDuration = (Math.random() * 2 + 4) + 's';
+  heart.style.opacity = Math.random() + 0.3;
+  heart.style.transform = `scale(${Math.random() * 0.6 + 0.4}) rotate(45deg)`;
+
   document.querySelector('.heart-container').appendChild(heart);
 
+  // Remover depois de um tempinho
   setTimeout(() => {
     heart.remove();
-  }, 6000);
+  }, 7000);
 }
 
-// Mais corações subindo
-setInterval(createHeart, 200);
+// Corações subindo o tempo todo
+setInterval(createHeart, 180);
