@@ -1,30 +1,40 @@
 // Abrir e fechar cartinha 💌
+const audio = new Audio('som-carta.mp3');
+
 document.getElementById('openLetterButton').addEventListener('click', () => {
   document.getElementById('letterModal').style.display = 'block';
+  audio.currentTime = 0;
+  audio.play();
 });
 
 document.getElementById('closeLetterButton').addEventListener('click', () => {
   document.getElementById('letterModal').style.display = 'none';
 });
 
-// Corações subindo 💖
+// Corações e brilhinhos subindo 💖✨
 function createHeart() {
   const heart = document.createElement('div');
   heart.className = 'heart';
-
-  // Posição e tempo aleatório
   heart.style.left = Math.random() * 100 + 'vw';
-  heart.style.animationDuration = (Math.random() * 2 + 4) + 's';
-  heart.style.opacity = Math.random() + 0.3;
-  heart.style.transform = `scale(${Math.random() * 0.6 + 0.4}) rotate(45deg)`;
-
+  heart.style.animationDuration = (Math.random() * 2 + 3) + 's';
   document.querySelector('.heart-container').appendChild(heart);
 
-  // Remover depois de um tempinho
   setTimeout(() => {
     heart.remove();
-  }, 7000);
+  }, 6000);
 }
 
-// Corações subindo o tempo todo
-setInterval(createHeart, 180);
+function createSparkle() {
+  const sparkle = document.createElement('div');
+  sparkle.className = 'sparkle';
+  sparkle.style.left = Math.random() * 100 + 'vw';
+  sparkle.style.animationDuration = (Math.random() * 2 + 2) + 's';
+  document.querySelector('.heart-container').appendChild(sparkle);
+
+  setTimeout(() => {
+    sparkle.remove();
+  }, 4000);
+}
+
+setInterval(createHeart, 200);
+setInterval(createSparkle, 500);
