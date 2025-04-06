@@ -1,128 +1,4 @@
-body {
-  font-family: 'Indie Flower', cursive;
-  background-color: #ffe6f0;
-  color: #4a4a4a;
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
-  position: relative;
-}
-
-.container {
-  max-width: 900px;
-  margin: 40px auto;
-  padding: 30px;
-  background-color: #fff0f6;
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(255, 105, 180, 0.2);
-  text-align: center;
-  position: relative;
-  z-index: 2;
-}
-
-h1, h2 {
-  color: #ff69b4;
-}
-
-.intro {
-  font-size: 18px;
-  margin-bottom: 30px;
-}
-
-.gallery {
-  margin-top: 30px;
-}
-
-.photos {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 15px;
-  justify-items: center;
-}
-
-.photos img {
-  width: 100%;
-  max-width: 180px;
-  height: auto;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  transition: transform 0.2s ease;
-}
-
-.photos img:hover {
-  transform: scale(1.05);
-}
-
-/* Botão animado */
-button {
-  background-color: #ffb6c1;
-  color: #fff;
-  border: none;
-  padding: 16px 28px;
-  font-size: 18px;
-  border-radius: 30px;
-  cursor: pointer;
-  margin-top: 40px;
-  transition: transform 0.2s ease, background-color 0.3s ease;
-  font-family: 'Indie Flower', cursive;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-button:hover {
-  background-color: #ff69b4;
-  transform: scale(1.05);
-}
-
-button:active {
-  transform: scale(0.95);
-}
-
-/* Modal da cartinha */
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 10;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.4);
-}
-
-.modal-content {
-  background-color: #fff0f6;
-  margin: 10% auto;
-  padding: 30px;
-  border: 2px solid #ff69b4;
-  border-radius: 15px;
-  width: 90%;
-  max-width: 500px;
-  text-align: center;
-  position: relative;
-}
-
-.modal-content h2 {
-  margin-top: 0;
-  color: #ff69b4;
-}
-
-#closeLetterButton {
-  position: absolute;
-  right: 15px;
-  top: 10px;
-  font-size: 28px;
-  cursor: pointer;
-  color: #ff69b4;
-}
-
-/* Footer */
-footer {
-  margin-top: 50px;
-  font-size: 20px;
-  color: #999;
-}
-
-/* Corações e brilhinhos */
+/* Corações subindo */
 .heart-container {
   position: fixed;
   top: 0;
@@ -138,49 +14,64 @@ footer {
   position: absolute;
   width: 20px;
   height: 20px;
-  background-color: transparent;
+  background: #ff69b4;
   transform: rotate(45deg);
-  animation: floatUp 6s ease-in forwards;
+  animation: floatUp 6s ease-in infinite;
 }
 
 .heart::before,
 .heart::after {
-  content: '';
+  content: "";
   position: absolute;
-  width: 12px;
-  height: 12px;
-  background-color: #ff69b4;
+  width: 20px;
+  height: 20px;
+  background: #ff69b4;
   border-radius: 50%;
-  transform: rotate(-45deg);
 }
 
 .heart::before {
-  top: -6px;
-  left: 4px;
+  top: -10px;
+  left: 0;
 }
 
 .heart::after {
-  top: 4px;
-  left: -6px;
-}
-
-.sparkle {
-  position: absolute;
-  width: 6px;
-  height: 6px;
-  background: #fff;
-  border-radius: 50%;
-  box-shadow: 0 0 8px #fff, 0 0 12px #ffb6c1;
-  animation: floatUp 4s ease-in forwards;
+  left: -10px;
+  top: 0;
 }
 
 @keyframes floatUp {
   0% {
-    transform: translateY(100vh) scale(1) rotate(0deg);
+    transform: translateY(100vh) scale(1) rotate(45deg);
     opacity: 1;
   }
   100% {
-    transform: translateY(-10vh) scale(0.5) rotate(360deg);
+    transform: translateY(-10vh) scale(0.5) rotate(45deg);
+    opacity: 0;
+  }
+}
+
+/* Brilhinhos */
+.sparkle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: radial-gradient(circle, #fff 0%, #ffe6f0 60%, transparent 100%);
+  border-radius: 50%;
+  animation: sparkleAnim 4s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes sparkleAnim {
+  0% {
+    opacity: 0;
+    transform: translateY(100vh) scale(1);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-10vh) scale(0.5);
     opacity: 0;
   }
 }
