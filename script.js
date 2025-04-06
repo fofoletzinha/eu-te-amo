@@ -19,6 +19,21 @@ function createHeart() {
   heart.style.animationDuration = (Math.random() * 2 + 3) + 's';
   document.querySelector('.heart-container').appendChild(heart);
 
+  // Brilhinhos ✨
+function createSparkle() {
+  const sparkle = document.createElement('div');
+  sparkle.className = 'sparkle';
+  sparkle.style.left = Math.random() * 100 + 'vw';
+  sparkle.style.animationDuration = (Math.random() * 2 + 3) + 's';
+  document.body.appendChild(sparkle);
+
+  setTimeout(() => {
+    sparkle.remove();
+  }, 5000);
+}
+
+setInterval(createSparkle, 300);
+
   setTimeout(() => {
     heart.remove();
   }, 6000);
