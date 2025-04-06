@@ -1,3 +1,4 @@
+/* Fonte, base e fundo */
 body {
   font-family: 'Indie Flower', cursive;
   background-color: #ffe6f0;
@@ -8,6 +9,7 @@ body {
   position: relative;
 }
 
+/* Container principal */
 .container {
   max-width: 900px;
   margin: 40px auto;
@@ -20,15 +22,18 @@ body {
   z-index: 2;
 }
 
+/* Títulos */
 h1, h2 {
   color: #ff69b4;
 }
 
+/* Texto introdutório */
 .intro {
   font-size: 18px;
   margin-bottom: 30px;
 }
 
+/* Galeria de fotos */
 .gallery {
   margin-top: 30px;
 }
@@ -53,28 +58,30 @@ h1, h2 {
   transform: scale(1.05);
 }
 
-/* Botão animado */
+/* Botão animado 💌 */
 button {
   background-color: #ffb6c1;
   color: #fff;
   border: none;
   padding: 16px 28px;
-  font-size: 18px;
+  font-size: 20px;
   border-radius: 30px;
   cursor: pointer;
   margin-top: 40px;
-  transition: transform 0.2s ease, background-color 0.3s ease;
+  transition: transform 0.2s ease, background-color 0.3s ease, box-shadow 0.3s ease;
   font-family: 'Indie Flower', cursive;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 6px 14px rgba(255, 182, 193, 0.4);
 }
 
 button:hover {
   background-color: #ff69b4;
-  transform: scale(1.05);
+  transform: scale(1.07);
+  box-shadow: 0 8px 20px rgba(255, 105, 180, 0.5);
 }
 
 button:active {
   transform: scale(0.95);
+  background-color: #ff1493;
 }
 
 /* Modal da cartinha */
@@ -99,6 +106,7 @@ button:active {
   max-width: 500px;
   text-align: center;
   position: relative;
+  box-shadow: 0 10px 30px rgba(255, 105, 180, 0.2);
 }
 
 .modal-content h2 {
@@ -122,7 +130,7 @@ footer {
   color: #999;
 }
 
-/* Corações */
+/* Corações subindo 💕 */
 .heart-container {
   position: fixed;
   top: 0;
@@ -140,7 +148,9 @@ footer {
   position: absolute;
   background-color: #ff69b4;
   transform: rotate(45deg);
-  animation: floatUp 6s infinite ease-in;
+  animation: floatUp 6s ease-in infinite;
+  opacity: 0.8;
+  border-radius: 0 50% 50% 50%;
 }
 
 .heart::before,
@@ -169,7 +179,7 @@ footer {
     opacity: 1;
   }
   100% {
-    transform: translateY(-10vh) scale(0.5) rotate(45deg);
+    transform: translateY(-10vh) scale(0.4) rotate(45deg);
     opacity: 0;
   }
 }
